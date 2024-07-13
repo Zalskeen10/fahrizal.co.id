@@ -1,0 +1,61 @@
+body {
+    font-family: Arial, sans-serif;
+}
+.calculator {
+    max-width: 300px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.input-group {
+    margin-bottom: 10px;
+}
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+.input-group input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+button {
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+function hitung(operasi) {
+    const num1 = parseFloat(document.getElementById('num1').value);
+    const num2 = parseFloat(document.getElementById('num2').value);
+    let hasil;
+
+    if (isNaN(num1) || isNaN(num2)) {
+        alert('Harap masukkan kedua angka.');
+        return;
+    }
+
+    switch (operasi) {
+        case 'tambah':
+            hasil = num1 + num2;
+            break;
+        case 'kurang':
+            hasil = num1 - num2;
+            break;
+        case 'kali':
+            hasil = num1 * num2;
+            break;
+        case 'bagi':
+            if (num2 === 0) {
+                alert('Pembagian dengan nol tidak diperbolehkan.');
+                return;
+            }
+            hasil = num1 / num2;
+            break;
+        default:
+            return;
+    }
+
+    document.getElementById('hasil').value = hasil;
+}
